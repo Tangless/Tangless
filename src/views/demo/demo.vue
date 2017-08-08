@@ -40,7 +40,6 @@
                         <div class="msgbody">
                             <pre>说点儿什么吧</pre>
                             <i class="tl-sanjiao"></i>
-                            <!--<img class="triangle" src="../views/images/triangle2.png">-->
                         </div>
                     </div>
                 </div>

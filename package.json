@@ -1,5 +1,5 @@
 {
-  "name": "Tangless",
+  "name": "T",
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "Tangless",
@@ -25,5 +25,15 @@
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://Tangless@github.com/Tangless/Tangless.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tangless/Tangless/issues"
+  },
+  "homepage": "https://github.com/Tangless/Tangless#readme"
 }
