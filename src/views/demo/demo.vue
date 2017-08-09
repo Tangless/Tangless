@@ -3,11 +3,11 @@
     <div class="left-nav">
         <p class="title">项目</p>
         <ul class="left-nav-list">
-            <li class="note-menu active"v-on:click="choosePage($event)">
+            <li class="note-menu demo-tab active"v-on:click="choosePage($event)">
                 <a class="menu-title " href="#">示例</a>
             </li>
             <!---->
-            <li class="note-menu " v-on:click="choosePage($event)">
+            <li class="note-menu demo-tab " v-on:click="choosePage($event)">
                 <a class="menu-title " href="#">API</a>
                 <!--<div>
                     <div class="menu-title ">API<span class="icon-circle-down"></span></div>
@@ -22,7 +22,7 @@
                 </div>-->
             </li>
             <!---->
-            <li class="note-menu" v-on:click="choosePage($event)">
+            <li class="note-menu demo-tab" v-on:click="choosePage($event)">
                 <a class="menu-title " href="#">图灵</a>
             </li>
         </ul>
@@ -65,7 +65,7 @@
         methods:{
             choosePage:function(event){
                 let el = event.currentTarget;
-                $(".note-menu").removeClass("active");
+                $(".demo-tab").removeClass("active");
                 $(el).addClass("active");
                 let text = $(el).find(".menu-title").text();
                 switch (text){

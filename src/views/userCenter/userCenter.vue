@@ -3,15 +3,21 @@
     <div class="left-nav">
         <p class="title">个人中心</p>
         <ul class="left-nav-list">
-            <li class="note-menu active" v-on:click="chooseUserCenterPage($event)">
-                <a class="menu-title" href="#">介绍</a>
-            </li>
-            <li class="note-menu" v-on:click="chooseUserCenterPage($event)">
-                <a class="menu-title" href="#">网站备案</a>
-            </li>
-            <li class="note-menu" v-on:click="chooseUserCenterPage($event)">
-                <a class="menu-title" href="#">模板下载</a>
-            </li>
+            <router-link to="user">
+                <li class="note-menu user-tab active" v-on:click="chooseUserCenterPage($event)">
+                    <a class="menu-title" href="#">介绍</a>
+                </li>
+            </router-link>
+            <router-link to="user">
+                <li class="note-menu user-tab" v-on:click="chooseUserCenterPage($event)">
+                    <a class="menu-title" href="#">网站备案</a>
+                </li>
+            </router-link>
+            <router-link to="user">
+                <li class="note-menu user-tab" v-on:click="chooseUserCenterPage($event)">
+                    <a class="menu-title" href="#">模板下载</a>
+                </li>
+            </router-link>
         </ul>
     </div>
     <div class="right-content">
@@ -86,7 +92,7 @@
         methods:{
             chooseUserCenterPage:function(event){
                 let el = event.currentTarget;
-                $(".note-menu").removeClass("active");
+                $(".user-tab").removeClass("active");
                 $(el).addClass("active");
                 let text = $(el).find(".menu-title").text();
                 switch (text){

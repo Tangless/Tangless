@@ -3,17 +3,23 @@
     <div class="left-nav">
         <p class="title">笔记</p>
         <ul class="left-nav-list">
-            <li class="note-menu active" v-on:click="chooseNotePage($event)">
-                <a class="menu-title" href="#">工作实践</a>
-            </li>
+            <router-link to="note">
+                <li class="note-menu note-tab active" v-on:click="chooseNotePage($event)">
+                    <a class="menu-title" href="#">工作实践</a>
+                </li>
+            </router-link>
             <!---->
-            <li class="note-menu" v-on:click="chooseNotePage($event)">
-                <a class="menu-title" href="#">学习笔记</a>
-            </li>
+            <router-link to="note">
+                <li class="note-menu note-tab" v-on:click="chooseNotePage($event)">
+                    <a class="menu-title" href="#">学习笔记</a>
+                </li>
+            </router-link>
             <!---->
-            <li class="note-menu" v-on:click="chooseNotePage($event)">
-                <a class="menu-title" href="#">杂记</a>
-            </li>
+            <router-link to="note">
+                <li class="note-menu note-tab" v-on:click="chooseNotePage($event)">
+                    <a class="menu-title" href="#">杂记</a>
+                </li>
+            </router-link>
         </ul>
     </div>
     <div class="right-content">
@@ -68,7 +74,7 @@
         methods:{
             chooseNotePage:function(event){
                 let el = event.currentTarget;
-                $(".note-menu").removeClass("active");
+                $(".note-tab").removeClass("active");
                 $(el).addClass("active");
                 let text = $(el).find(".menu-title").text();
                 switch (text){

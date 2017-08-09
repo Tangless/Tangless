@@ -4,7 +4,7 @@
             <div class="layout" id="layout">
                 <a class="ecode" href="javascript:void(0)"></a>
                 <div class="layout-header">
-                    <!--<img class="login-img" src="../../../favicon.ico" />-->
+                    <img class="login-img" src="static/images/favicon.ico" />
                     <h4 class="text-center login-welcome">欢迎登录</h4>
                 </div>
                 <div class="form-login">
@@ -41,7 +41,7 @@
         right: 0;
         top: 0;
         opacity: .3;
-        /*background: url("../../views/images/ecode.gif") no-repeat;*/
+        background: url("/static/images/ecode.gif") no-repeat;
     }
     .layout-header{
         height: 192px;
@@ -131,6 +131,7 @@
         methods: {
             /*登录提交*/
             login: function () {
+                var that = this;
                 /*实例化野狗身份认证*/
                 var config = {
                     authDomain: "wd1487810104sghfpv.wilddog.com"
@@ -145,7 +146,7 @@
                         globaldata.user.uid = wilddog.auth().currentUser.uid;
                         globaldata.user.email = wilddog.auth().currentUser.email;
                         globaldata.user.phone = wilddog.auth().currentUser.phone;
-                        window.location.href='/index';
+                        that.$router.push('/index')
                     }).catch(function (err) {
                         console.info('login failed ->', err);
                         $(".error-Tip").removeClass("hide");
