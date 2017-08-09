@@ -36,7 +36,7 @@
                 <div class="content-list">
                     <div class="one-message">
                         <div class="msgfrom-info">叮铃玲玲</div>
-                        <img class="user-head-icon left" src="../../views/images/tuling.png">
+                        <img class="user-head-icon left" src="static/images/tuling.png">
                         <div class="msgbody">
                             <pre>说点儿什么吧</pre>
                             <i class="tl-sanjiao"></i>
@@ -123,7 +123,7 @@
                 let msghead = '';
                 //如果自己发的消息
                 if (isSelfSend) {
-                    userhead = '<img class="user-head-icon right" src="../../src/views/images/tulinguser.png"/>';
+                    userhead = '<img class="user-head-icon right" src="static/images/tulinguser.png"/>';
                     //小三角
                     /*<img class="triangle" src="../views/images/triangle.png">*/
                     triangle = '<i class="tr-sanjiao"></i>';
@@ -135,7 +135,7 @@
                 }
                 //不是自己发的消息
                 else {
-                    userhead = '<img class="user-head-icon left" src="../../src/views/images/tuling.png"/>';
+                    userhead = '<img class="user-head-icon left" src="static/images/tuling.png"/>';
                     msghead = '<div class="msgfrom-info">叮铃玲玲</span></div>';
                         //小三角
                     // triangle = '<img class="triangle" src="../views/images/triangle2.png">';

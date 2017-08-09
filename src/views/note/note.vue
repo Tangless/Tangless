@@ -3,15 +3,15 @@
     <div class="left-nav">
         <p class="title">笔记</p>
         <ul class="left-nav-list">
-            <li class="note-menu active" v-on:click="choosePage($event)">
+            <li class="note-menu active" v-on:click="chooseNotePage($event)">
                 <a class="menu-title" href="#">工作实践</a>
             </li>
             <!---->
-            <li class="note-menu" v-on:click="choosePage($event)">
+            <li class="note-menu" v-on:click="chooseNotePage($event)">
                 <a class="menu-title" href="#">学习笔记</a>
             </li>
             <!---->
-            <li class="note-menu" v-on:click="choosePage($event)">
+            <li class="note-menu" v-on:click="chooseNotePage($event)">
                 <a class="menu-title" href="#">杂记</a>
             </li>
         </ul>
@@ -66,7 +66,7 @@
             }
         },
         methods:{
-            choosePage:function(event){
+            chooseNotePage:function(event){
                 let el = event.currentTarget;
                 $(".note-menu").removeClass("active");
                 $(el).addClass("active");
@@ -77,89 +77,6 @@
                     case "杂记":this.notePage="2";break;
                 }
                 // alert(this.notePage);
-            },
-            send:function(){
-                let that=this;
-                let msg = $(".edit-input").val();
-                let url = '';
-                let appkey = 'cb8d9ff9f9aa434aa85cea9a46106338';
-                if(msg){
-                    $(".content-list").append(that.pushMsg(msg,true));
-                    url='http://www.tuling123.com/openapi/api?key=cb8d9ff9f9aa434aa85cea9a46106338&info='+msg+'&userid=000001';
-                    $(".edit-input").val('');
-                    $.ajax({
-                        url: url,
-                        type: 'POST',
-                        success: function (data) {
-                            let dataMsg="";
-                            switch (data.code){
-                                case 100000:
-                                //文本
-                                    dataMsg=data.text;
-                                    break;
-                                case 200000:
-                                //有链接
-                                    dataMsg='<a target="_blank" href="'+data.url+'">'+data.text+'</a>';
-                                    break;
-                                case 302000:
-                                //新闻
-                                    dataMsg='<li class="news">' + '<a target="_blank" href="' + data.detailurl + '">' + data.article + '</a>' + '</li>';
-                                    break;
-                                case 308000:
-                                //菜谱
-                                    for(let i=0;i<data.list.length;i++){
-                                        dataMsg=dataMsg+'<ul class="caipu">' + '<li>菜谱: ' + data.list[i].name +'</li><li><img src="'+data.list[i].icon+'" /></li><li>材料：'+data.list[i].info+'</li><br>'+ '<a target="_blank" href="' + data.list[i].detailurl + '">' + '查看详情</a>' + '</ul><br>';
-                                    }
-                                    break;
-
-                            }
-                            $(".content-list").append(that.pushMsg(dataMsg,false));
-                        }
-                    });
-
-                }
-            },
-            /*拼接消息*/
-            pushMsg:function(msg,isSelfSend){
-                let triangle, userhead;
-                let onemsg = '';
-                let msghead = '';
-                //如果自己发的消息
-                if (isSelfSend) {
-                    userhead = '<img class="user-head-icon right" src="../../views/images/tulinguser.png"/>';
-                    //小三角
-                    /*<img class="triangle" src="../views/images/triangle.png">*/
-                    triangle = '<i class="tr-sanjiao"></i>';
-
-                    onemsg = '<div class="one-message self-msg">' + userhead +
-                        '<div class="msgbody"><pre>' + msg + '</pre>' + triangle +
-                        '</div></div>';
-
-                }
-                //不是自己发的消息
-                else {
-                    userhead = '<img class="user-head-icon left" src="../../views/images/tuling.png"/>';
-                    msghead = '<div class="msgfrom-info">叮铃玲玲</span></div>';
-                        //小三角
-                    // triangle = '<img class="triangle" src="../views/images/triangle2.png">';
-                    triangle = '<i class="tl-sanjiao"></i>';
-                    
-                    onemsg = '<div class="one-message">' + msghead + userhead +
-                        '<div class="msgbody"><pre>' + msg + '</pre>' + triangle +
-                        '</div></div>';
-                }
-                //如果是图片,去掉<pre>标签
-                if (onemsg.indexOf('chat-img') > 0) {
-                    onemsg = onemsg.replace('<pre>', '').replace('</pre>', '');
-                }
-
-                /*滚动条居底*/
-                setTimeout(function () {
-                    let d=$('.content-list');
-                    let dh= d[0].scrollHeight;
-                    d.scrollTop(dh);
-                },100)
-                return onemsg;
             }
         }
     }     
