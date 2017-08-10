@@ -147,7 +147,7 @@
                         globalData.user.uid = wilddog.auth().currentUser.uid;
                         globalData.user.email = wilddog.auth().currentUser.email;
                         globalData.user.phone = wilddog.auth().currentUser.phone;
-                        that.$router.push('/index')
+                        that.$router.push('/index');
                     }).catch(function (err) {
                         console.info('login failed ->', err);
                         $(".error-Tip").removeClass("hide");
