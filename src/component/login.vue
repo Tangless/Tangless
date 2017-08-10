@@ -2,7 +2,8 @@
     <div id="login-form">
         <div class="login-form">
             <div class="layout" id="layout">
-                <a class="ecode" href="javascript:void(0)"></a>
+                <!--<a class="ecode" href="javascript:void(0)"></a>-->
+                <img class="ecode" src="static/images/ecode.png" />
                 <div class="layout-header">
                     <img class="login-img" src="static/images/favicon.ico" />
                     <h4 class="text-center login-welcome">欢迎登录</h4>
@@ -36,12 +37,12 @@
     }
     .ecode{
         width: 68px;
-        height: 68px;
+        height: 83px;
         position: absolute;
         right: 0;
         top: 0;
         opacity: .3;
-        background: url("/static/images/ecode.gif") no-repeat;
+        /*background: url("/static/images/ecode.gif") no-repeat;*/
     }
     .layout-header{
         height: 192px;
@@ -143,9 +144,9 @@
                 wilddog.auth().signInWithEmailAndPassword(userName, userPW)
                     .then(function () {
                         console.log(wilddog.auth().currentUser)
-                        globaldata.user.uid = wilddog.auth().currentUser.uid;
-                        globaldata.user.email = wilddog.auth().currentUser.email;
-                        globaldata.user.phone = wilddog.auth().currentUser.phone;
+                        globalData.user.uid = wilddog.auth().currentUser.uid;
+                        globalData.user.email = wilddog.auth().currentUser.email;
+                        globalData.user.phone = wilddog.auth().currentUser.phone;
                         that.$router.push('/index')
                     }).catch(function (err) {
                         console.info('login failed ->', err);
