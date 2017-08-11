@@ -5,7 +5,7 @@
                 <!--<a class="ecode" href="javascript:void(0)"></a>-->
                 <img class="ecode" src="static/images/ecode.png" />
                 <div class="layout-header">
-                    <img class="login-img" src="static/images/favicon.ico" />
+                    <img class="login-img" src="static/images/logo.png" />
                     <h4 class="text-center login-welcome">欢迎登录</h4>
                 </div>
                 <div class="form-login">
