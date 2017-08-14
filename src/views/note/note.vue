@@ -3,19 +3,19 @@
     <div class="left-nav">
         <p class="title">笔记</p>
         <ul class="left-nav-list">
-            <router-link to="note">
+            <router-link to="/note">
                 <li class="note-menu note-tab active" v-on:click="chooseNotePage($event)">
                     <a class="menu-title" href="#">工作实践</a>
                 </li>
             </router-link>
             <!---->
-            <router-link to="note">
+            <router-link to="/note">
                 <li class="note-menu note-tab" v-on:click="chooseNotePage($event)">
                     <a class="menu-title" href="#">学习笔记</a>
                 </li>
             </router-link>
             <!---->
-            <router-link to="note">
+            <router-link to="/note">
                 <li class="note-menu note-tab" v-on:click="chooseNotePage($event)">
                     <a class="menu-title" href="#">杂记</a>
                 </li>
@@ -23,6 +23,7 @@
         </ul>
     </div>
     <div class="right-content">
+        <!--<router-view></router-view>-->
         <button class="new-article">新建文章</button>
         <div class="page-0" v-if="notePage=='0'">
             <table id="lstBox" cellspacing="0">
@@ -68,8 +69,12 @@
         data() {
             return {
                 author: '11111',
-                notePage:'0'
+                notePage:globalData.status.noteClass
             }
+        },
+        watch:{
+            "globalData.status.noteClass":"clai",
+            // "notePage":"clai"
         },
         methods:{
             chooseNotePage:function(event){
@@ -82,7 +87,14 @@
                     case "学习笔记":this.notePage="1";break;
                     case "杂记":this.notePage="2";break;
                 }
+                globalData.status.noteClass = this.notePage;
                 // alert(this.notePage);
+            },
+            noteClassEvent: function () {
+                this.notePage = globalData.status.noteClass;
+            },
+            clai:function(){
+                alert(this.notePage)
             }
         }
     }     

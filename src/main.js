@@ -13,7 +13,9 @@ import loginForm from './component/login.vue'
 import demo from './views/demo/demo.vue'
 import note from './views/note/note.vue'
 import userCenter from './views/userCenter/userCenter.vue'
-
+const work = { template: '<div><h2>我是work子页面</h2></div>' }
+const study = { template: '<div><h2>我是study子页面</h2></div>' }
+const other = { template: '<div><h2>我是other子页面</h2></div>' }
 // 创建一个路由器实例
 // 并且配置路由规则
 const router = new VueRouter({
@@ -38,7 +40,18 @@ const router = new VueRouter({
     },
     {
       path: '/note',
-      component: note
+      // path: '/note/:id',
+      component: note,
+      // children:[{
+      //   path:'work',
+      //   component:work
+      // },{
+      //   path:'study',
+      //   component:study
+      // },{
+      //   path:'other',
+      //   component:other
+      // }]
     },
     {
       path: '/user',
