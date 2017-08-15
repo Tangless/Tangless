@@ -17,7 +17,7 @@ import myHeader from './component/header.vue'
     },
     components: {myHeader},
     created: function () {
-      this.$router.push('/index:shili')//刷新进入index页
+      this.$router.push('/index/shili')//刷新进入index页
     }
   }
 </script>

@@ -13,9 +13,7 @@ import loginForm from './component/login.vue'
 import demo from './views/demo/demo.vue'
 import note from './views/note/note.vue'
 import userCenter from './views/userCenter/userCenter.vue'
-const work = { template: '<div><h2>我是work子页面</h2></div>' }
-const study = { template: '<div><h2>我是study子页面</h2></div>' }
-const other = { template: '<div><h2>我是other子页面</h2></div>' }
+const Bar = { template: '<div>This is Bar {{ $route.params.id }}</div>' }
 // 创建一个路由器实例
 // 并且配置路由规则
 const router = new VueRouter({
@@ -34,17 +32,20 @@ const router = new VueRouter({
      * 但是路由匹配则为 /demanddetail，就像用户访问 /demanddetail 一样。
      */
     {
-      path: '/demo:demoid',
+      path: '/demo/:demoId',
+      name:'index',
       component: demo,
-      alias: '/index:demoid'
+      alias: '/index/:demoId'
     },
     {
-      // path: '/note',
-      path: '/note:noteid',
+      // path: '/note/',
+      path: '/note/:noteId',
+      name:'note',
       component: note,
     },
     {
-      path: '/user:userid',
+      path: '/user/:userId',
+      name:'user',
       component: userCenter
     },
     {

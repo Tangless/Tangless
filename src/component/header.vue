@@ -10,34 +10,33 @@
                 </div>
                 <div class="nav pull-right">
                     <ul id="J_nav" class="clearfix nav-list">
-                        <router-link to="/index:shili">
+                        <router-link :to="{ name: 'index', params: { demoId: 'shili' }}">
                             <li id="demo" class="nav-item" v-on:click="chooseTab($event)" v-bind:class="{ hover: hoverClass=='0' }">
                                 <a class="nav-item-link" href="#">项目</a>
                                 <ul class="nav-sub-list fadeUp">
-                                    <router-link to="/index:shili"><li class="nav-sub-item"><a href="../index.html">示例</a></li></router-link>
-                                    <router-link to="/index:api"><li class="nav-sub-item"><a href="../index.html">API</a></li></router-link>
-                                    <router-link to="/index:tuling"><li class="nav-sub-item"><a href="../index.html">图灵</a></li></router-link>
+                                    <router-link :to="{ name: 'index', params: { demoId: 'shili' }}"><li class="nav-sub-item"><a href="../index.html">示例</a></li></router-link>
+                                    <router-link :to="{ name: 'index', params: { demoId: 'api' }}"><li class="nav-sub-item"><a href="../index.html">API</a></li></router-link>
+                                    <router-link :to="{ name: 'index', params: { demoId: 'tuling' }}"><li class="nav-sub-item"><a href="../index.html">图灵</a></li></router-link>
                                 </ul>
                             </li>
                         </router-link>
-                        <router-link to="/note:work">
+                        <router-link :to="{ name: 'note', params: { noteId: 'work' }}">
                             <li id="note" class="nav-item" v-on:click="chooseTab($event)" v-bind:class="{ hover: hoverClass=='1' }">
                                 <a class="nav-item-link" href="#">笔记</a>
                                 <ul class="nav-sub-list fadeUp">
-                                    
-                                    <router-link to="/note:work"><li class="nav-sub-item"><a href="../note/index.html">工作实践</a></li></router-link>
-                                    <router-link to="/note:study"><li class="nav-sub-item"><a href="../note/index.html">学习笔记</a></li></router-link>
-                                    <router-link to="/note:other"><li class="nav-sub-item"><a href="../note/index.html">杂记</a></li></router-link>
+                                    <router-link :to="{ name: 'note', params: { noteId: 'work' }}"><li class="nav-sub-item"><a href="../note/index.html">工作实践</a></li></router-link>
+                                    <router-link :to="{ name: 'note', params: { noteId: 'study' }}"><li class="nav-sub-item"><a href="../note/index.html">学习笔记</a></li></router-link>
+                                    <router-link :to="{ name: 'note', params: { noteId: 'other' }}"><li class="nav-sub-item"><a href="../note/index.html">杂记</a></li></router-link>
                                 </ul>
                             </li>
                         </router-link>
-                        <router-link to="/user:jieshao">
+                        <router-link :to="{ name: 'user', params: { userId: 'jieshao' }}">
                             <li id="userCenter" class="nav-item last" v-on:click="chooseTab($event)" v-bind:class="{ hover: hoverClass=='2' }">
                                 <a class="nav-item-link" href="#">个人中心</a>
                                 <ul class="nav-sub-list fadeUp">
-                                    <router-link to="/user:jieshao"><li class="nav-sub-item"><a href="../userCenter/index.html">介绍</a></li></router-link>
-                                    <router-link to="/user:beian"><li class="nav-sub-item"><a href="../userCenter/index.html">网站备案</a></li></router-link>
-                                    <router-link to="/user:download"><li class="nav-sub-item"><a href="../userCenter/index.html">模板下载</a></li></router-link>
+                                    <router-link :to="{ name: 'user', params: { userId: 'jieshao' }}"><li class="nav-sub-item"><a href="../userCenter/index.html">介绍</a></li></router-link>
+                                    <router-link :to="{ name: 'user', params: { userId: 'beian' }}"><li class="nav-sub-item"><a href="../userCenter/index.html">网站备案</a></li></router-link>
+                                    <router-link :to="{ name: 'user', params: { userId: 'download' }}"><li class="nav-sub-item"><a href="../userCenter/index.html">模板下载</a></li></router-link>
                                 </ul>
                             </li>
                         </router-link>
