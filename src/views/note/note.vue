@@ -3,29 +3,28 @@
     <div class="left-nav">
         <p class="title">笔记</p>
         <ul class="left-nav-list">
-            <router-link to="/note">
-                <li class="note-menu note-tab active" v-on:click="chooseNotePage($event)">
+            <router-link to="/note:work">
+                <li class="note-menu note-tab"  v-bind:class="{ active: this.$route.params.noteid==':work' }">
                     <a class="menu-title" href="#">工作实践</a>
                 </li>
             </router-link>
             <!---->
-            <router-link to="/note">
-                <li class="note-menu note-tab" v-on:click="chooseNotePage($event)">
+            <router-link to="/note:study">
+                <li class="note-menu note-tab"  v-bind:class="{ active: this.$route.params.noteid==':study' }">
                     <a class="menu-title" href="#">学习笔记</a>
                 </li>
             </router-link>
             <!---->
-            <router-link to="/note">
-                <li class="note-menu note-tab" v-on:click="chooseNotePage($event)">
+            <router-link to="/note:other">
+                <li class="note-menu note-tab"  v-bind:class="{ active: this.$route.params.noteid==':other' }">
                     <a class="menu-title" href="#">杂记</a>
                 </li>
             </router-link>
         </ul>
     </div>
     <div class="right-content">
-        <!--<router-view></router-view>-->
         <button class="new-article">新建文章</button>
-        <div class="page-0" v-if="notePage=='0'">
+        <div class="page-0" v-if="this.$route.params.noteid==':work'">
             <table id="lstBox" cellspacing="0">
                 <tbody>
                     <tr class="">
@@ -57,7 +56,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="page-1" v-else-if="notePage=='1'">1</div>
+        <div class="page-1" v-else-if="this.$route.params.noteid==':study'">1</div>
         <div class="page-2" v-else>2</div>
     </div>
 </div>
@@ -69,33 +68,21 @@
         data() {
             return {
                 author: '11111',
-                notePage:globalData.status.noteClass
+                // notePage:this.$route.params.id
             }
-        },
-        watch:{
-            "globalData.status.noteClass":"clai",
-            // "notePage":"clai"
         },
         methods:{
             chooseNotePage:function(event){
-                let el = event.currentTarget;
-                $(".note-tab").removeClass("active");
-                $(el).addClass("active");
-                let text = $(el).find(".menu-title").text();
-                switch (text){
-                    case "工作实践":this.notePage="0";break;
-                    case "学习笔记":this.notePage="1";break;
-                    case "杂记":this.notePage="2";break;
-                }
-                globalData.status.noteClass = this.notePage;
-                // alert(this.notePage);
+                // let el = event.currentTarget;
+                // // $(".note-tab").removeClass("active");
+                // // $(el).addClass("active");
+                // let text = $(el).find(".menu-title").text();
+                // switch (text){
+                //     case "工作实践":this.notePage="0";break;
+                //     case "学习笔记":this.notePage="1";break;
+                //     case "杂记":this.notePage="2";break;
+                // }
             },
-            noteClassEvent: function () {
-                this.notePage = globalData.status.noteClass;
-            },
-            clai:function(){
-                alert(this.notePage)
-            }
         }
     }     
 </script>

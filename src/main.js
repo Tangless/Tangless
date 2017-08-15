@@ -34,27 +34,17 @@ const router = new VueRouter({
      * 但是路由匹配则为 /demanddetail，就像用户访问 /demanddetail 一样。
      */
     {
-      path: '/demo',
+      path: '/demo:demoid',
       component: demo,
-      alias: '/index'
+      alias: '/index:demoid'
     },
     {
-      path: '/note',
-      // path: '/note/:id',
+      // path: '/note',
+      path: '/note:noteid',
       component: note,
-      // children:[{
-      //   path:'work',
-      //   component:work
-      // },{
-      //   path:'study',
-      //   component:study
-      // },{
-      //   path:'other',
-      //   component:other
-      // }]
     },
     {
-      path: '/user',
+      path: '/user:userid',
       component: userCenter
     },
     {

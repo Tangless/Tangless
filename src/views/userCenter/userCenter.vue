@@ -3,25 +3,25 @@
     <div class="left-nav">
         <p class="title">个人中心</p>
         <ul class="left-nav-list">
-            <router-link to="user">
-                <li class="note-menu user-tab active" v-on:click="chooseUserCenterPage($event)">
+            <router-link to="/user:jieshao">
+                <li class="note-menu user-tab"  v-bind:class="{ active: this.$route.params.userid==':jieshao' }">
                     <a class="menu-title" href="#">介绍</a>
                 </li>
             </router-link>
-            <router-link to="user">
-                <li class="note-menu user-tab" v-on:click="chooseUserCenterPage($event)">
+            <router-link to="/user:beian">
+                <li class="note-menu user-tab"  v-bind:class="{ active: this.$route.params.userid==':beian' }">
                     <a class="menu-title" href="#">网站备案</a>
                 </li>
             </router-link>
-            <router-link to="user">
-                <li class="note-menu user-tab" v-on:click="chooseUserCenterPage($event)">
+            <router-link to="/user:download">
+                <li class="note-menu user-tab"  v-bind:class="{ active: this.$route.params.userid==':download' }">
                     <a class="menu-title" href="#">模板下载</a>
                 </li>
             </router-link>
         </ul>
     </div>
     <div class="right-content">
-        <div class="page-0" v-if="userPage=='0'">
+        <div class="page-0" v-if="this.$route.params.userid==':jieshao'">
             <div class="resume-1">
                 <div class="user-info">
                     <img src=""/>
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="page-1" v-else-if="userPage=='1'">1</div>
+        <div class="page-1" v-else-if="this.$route.params.userid==':beian'">1</div>
         <div class="page-2" v-else>2</div>
     </div>
 </div>
@@ -86,22 +86,22 @@
         data() {
             return {
                 author: '11111',
-                userPage:'0'
+                // userPage:'0'
             }
         },
         methods:{
-            chooseUserCenterPage:function(event){
-                let el = event.currentTarget;
-                $(".user-tab").removeClass("active");
-                $(el).addClass("active");
-                let text = $(el).find(".menu-title").text();
-                switch (text){
-                    case "介绍":this.userPage="0";break;
-                    case "网站备案":this.userPage="1";break;
-                    case "模板下载":this.userPage="2";break;
-                }
-                // alert(this.userPage);
-            }
+            // chooseUserCenterPage:function(event){
+            //     let el = event.currentTarget;
+            //     $(".user-tab").removeClass("active");
+            //     $(el).addClass("active");
+            //     let text = $(el).find(".menu-title").text();
+            //     switch (text){
+            //         case "介绍":this.userPage="0";break;
+            //         case "网站备案":this.userPage="1";break;
+            //         case "模板下载":this.userPage="2";break;
+            //     }
+            //     // alert(this.userPage);
+            // }
         }
     }     
 </script>

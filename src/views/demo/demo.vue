@@ -3,11 +3,14 @@
     <div class="left-nav">
         <p class="title">项目</p>
         <ul class="left-nav-list">
-            <li class="note-menu demo-tab active"v-on:click="choosePage($event)">
+            <router-link to="/index:shili">
+            <li class="note-menu demo-tab" v-bind:class="{ active: this.$route.params.demoid==':shili' }">
                 <a class="menu-title " href="#">示例</a>
             </li>
+            </router-link>
             <!---->
-            <li class="note-menu demo-tab " v-on:click="choosePage($event)">
+            <router-link to="/index:api">
+            <li class="note-menu demo-tab "  v-bind:class="{ active: this.$route.params.demoid==':api' }">
                 <a class="menu-title " href="#">API</a>
                 <!--<div>
                     <div class="menu-title ">API<span class="icon-circle-down"></span></div>
@@ -21,15 +24,18 @@
                     </ul>
                 </div>-->
             </li>
+            </router-link>
             <!---->
-            <li class="note-menu demo-tab" v-on:click="choosePage($event)">
+            <router-link to="/index:tuling">
+            <li class="note-menu demo-tab"  v-bind:class="{ active: this.$route.params.demoid==':tuling' }">
                 <a class="menu-title " href="#">图灵</a>
             </li>
+            </router-link>
         </ul>
     </div>
     <div class="right-content">
-        <div class="page-0" v-if="demoPage=='0'">0</div>
-        <div class="page-1" v-else-if="demoPage=='1'">1</div>
+        <div class="page-0" v-if="this.$route.params.demoid==':shili'">0</div>
+        <div class="page-1" v-else-if="this.$route.params.demoid==':api'">1</div>
         <div class="page-2" v-else>
             <div class="robot">
                 <h1 class="text-center">天下事</h1>
@@ -59,22 +65,22 @@
         data() {
             return {
                 author: '11111',
-                demoPage:'0'
+                // demoPage:'0'
             }
         },
         methods:{
-            choosePage:function(event){
-                let el = event.currentTarget;
-                $(".demo-tab").removeClass("active");
-                $(el).addClass("active");
-                let text = $(el).find(".menu-title").text();
-                switch (text){
-                    case "示例":this.demoPage="0";break;
-                    case "API":this.demoPage="1";break;
-                    case "图灵":this.demoPage="2";break;
-                }
-                // alert(this.demoPage);
-            },
+            // choosePage:function(event){
+            //     let el = event.currentTarget;
+            //     $(".demo-tab").removeClass("active");
+            //     $(el).addClass("active");
+            //     let text = $(el).find(".menu-title").text();
+            //     switch (text){
+            //         case "示例":this.demoPage="0";break;
+            //         case "API":this.demoPage="1";break;
+            //         case "图灵":this.demoPage="2";break;
+            //     }
+            //     // alert(this.demoPage);
+            // },
             send:function(){
                 let that=this;
                 let msg = $(".edit-input").val();
