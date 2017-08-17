@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-      <my-header></my-header>
+      <my-header :child-com="content" @showbox="toshow"></my-header>
+      <!--<input v-model="content" />-->
     <router-view></router-view>
   </div>
 </template>
@@ -12,12 +13,17 @@ import myHeader from './component/header.vue'
     name: 'app',
     data() {
       return {
-        msg: 'hello ！welcome to Tangless~VUE',
+        content: 'hello ！welcome to Tangless~VUE',
       }
     },
     components: {myHeader},
     created: function () {
       this.$router.push('/index/shili')//刷新进入index页
+    },
+    methods:{
+      toshow:function(msg){
+        this.content=msg
+      }
     }
   }
 </script>

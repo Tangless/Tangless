@@ -1,5 +1,7 @@
 <template>
     <header id="header">
+        <!--{{childCom}}-->
+        <!--<div @click="open">hhh</div>-->
         <div class="nav-wrapper gradient-line">
             <div class="nav-content clearfix">
                 <div class="pull-left">
@@ -15,7 +17,7 @@
                                 <a class="nav-item-link" href="#">项目</a>
                                 <ul class="nav-sub-list fadeUp">
                                     <router-link :to="{ name: 'index', params: { demoId: 'shili' }}"><li class="nav-sub-item"><a href="../index.html">示例</a></li></router-link>
-                                    <router-link :to="{ name: 'index', params: { demoId: 'api' }}"><li class="nav-sub-item"><a href="../index.html">API</a></li></router-link>
+                                    <router-link :to="{ name: 'index', params: { demoId: 'gobang' }}"><li class="nav-sub-item"><a href="../index.html">五子棋</a></li></router-link>
                                     <router-link :to="{ name: 'index', params: { demoId: 'tuling' }}"><li class="nav-sub-item"><a href="../index.html">图灵</a></li></router-link>
                                 </ul>
                             </li>
@@ -56,7 +58,16 @@
                 hoverClass:"0"
             }
         },
+        props:{
+            childCom:{
+                type: String,
+                default: 'sichaoyun' 
+            }
+        },
         methods:{
+            open:function(){
+                this.$emit('showbox','the msg'); //触发showbox方法，'the msg'为向父组件传递的数据
+            },
             chooseTab:function(event){
                 let el = event.currentTarget;
                 let text = $(el).find(".nav-item-link").text();
