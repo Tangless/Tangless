@@ -22,10 +22,14 @@ header#header.to-up {
   margin-right: 24px;
 }
 .nav-wrapper .nav-logo img {
-  width: 40px;
+  /*width: 40px;
   height: 72px;
   line-height: 72px;
+  margin-right: 18px;*/
+  width: 40px;
+  height: 40px;
   margin-right: 18px;
+  border-radius: 50%;
 }
 .nav-wrapper .nav-logo span.logo-text {
   float: right;

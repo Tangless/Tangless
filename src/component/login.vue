@@ -54,6 +54,7 @@
         height: 48px;
         margin: 0 auto;
         display: block;
+        border-radius: 5px;
     }
     .login-welcome{
         font-size: 30px;

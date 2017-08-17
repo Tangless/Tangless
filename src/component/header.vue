@@ -6,7 +6,7 @@
             <div class="nav-content clearfix">
                 <div class="pull-left">
                     <a href="/" class="nav-logo">
-                        <img src="https://zos.alipayobjects.com/rmsportal/aGpKpuxoGfZqJobMPLvj.svg">
+                        <img src="static/images/logo.png">
                         <span class="logo-text">TangLess</span>
                     </a>
                 </div>
