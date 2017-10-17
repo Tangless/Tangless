@@ -24,3 +24,5 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 #安装了路由模块vue-router和网络请求模块vue-resource
 
 #compontent文件夹下面放置的是组件
+
+# 引入了野狗云的身份认证接口
