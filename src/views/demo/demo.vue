@@ -48,7 +48,7 @@
                 </div>
                 <div class="edit text-left">
                     <input class="edit-input" placeholder="知天下事"/>
-                    <button class="send" v-on:keyup.enter="send" v-on:click="send" >send</button>
+                    <button class="send" v-on:keyup.up="send" v-on:click="send" >send</button>
                 </div>
             </div>
         </div>
